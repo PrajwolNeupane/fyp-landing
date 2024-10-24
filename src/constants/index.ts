@@ -1,6 +1,6 @@
 export const LINK = {
   home: "/",
-  track: "/track",
+  career: "/career",
   becomeClient: "/register",
 };
 

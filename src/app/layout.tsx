@@ -1,13 +1,38 @@
+import localFont from "next/font/local";
+import "maplibre-gl/dist/maplibre-gl.css";
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
-import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "maplibre-gl/dist/maplibre-gl.css";
+import "./globals.css";
 
-const inter = Jost({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const halenoir = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Halenoir-Black.otf",
+      weight: "800",
+    },
+    {
+      path: "../assets/fonts/Halenoir-Bold.otf",
+      weight: "700",
+    },
+    {
+      path: "../assets/fonts/Halenoir-DemiBold.otf",
+      weight: "600",
+    },
+    {
+      path: "../assets/fonts/HalenoirCompactText-Medium.otf",
+      weight: "500",
+    },
+    {
+      path: "../assets/fonts/HalenoirCompactText-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "../assets/fonts/HalenoirCompact-ExtraLight.otf",
+      weight: "300",
+    },
+  ],
+  variable: "--font-halenoir",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${halenoir.className}`}>
         {children}
         <ToastContainer
           position="bottom-right"

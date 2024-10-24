@@ -18,6 +18,10 @@ export default function NavBar() {
       url: "/",
     },
     {
+      title: "CAREERS",
+      url: LINK.career,
+    },
+    {
       title: "CONTACT US",
       url: "/",
     },
@@ -38,19 +42,11 @@ export default function NavBar() {
             {curr.title}
           </Link>
         ))}
-      </div>
-      <div className="flex items-center gap-3">
         <Link
           href={LINK.becomeClient}
-          className="border-orange-500 border-[1.5px] px-7  rounded-3xl font-medium text-4xs text-white py-2 hover:bg-orange-600 duration-300 ease-in-out shadow-lg"
+          className="px-7 tracking-[0.5px] rounded-3xl font-medium text-4xs text-white py-2 bg-orange-600 hover:bg-orange-700 duration-300 ease-in-out shadow-lg"
         >
           REGISTER NOW
-        </Link>
-        <Link
-          href={LINK.track}
-          className="px-7  rounded-3xl font-medium text-4xs text-white py-2 bg-orange-500 hover:bg-orange-600 duration-300 ease-in-out shadow-lg"
-        >
-          TRACK ORDER
         </Link>
       </div>
     </div>

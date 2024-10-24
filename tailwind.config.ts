@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-halenoir)"],
+      },
       colors: {
         secondary: "#253B90",
       },
@@ -26,10 +29,11 @@ const config: Config = {
         "4xs": "13px",
       },
       fontWeight: {
-        bold: "600",
-        semibold: "500",
-        medium: "400",
-        regular: "300",
+        bold: "700",
+        semibold: "600",
+        medium: "500",
+        regular: "400",
+        light: "300",
       },
     },
   },
