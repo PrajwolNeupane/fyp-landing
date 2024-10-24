@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: var(--font-halenoir), sans-serif;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -35,4 +39,38 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #FF7043;
+}
+
+#preview-only h2,
+h3 {
+    @apply font-semibold
+}
+
+#preview-only strong {
+    @apply font-semibold
+}
+
+#preview-only h4,
+h5 {
+    @apply font-medium
+}
+
+#preview-only h1 {
+    @apply text-sm
+}
+
+#preview-only h2 {
+    @apply text-xs
+}
+
+#preview-only h3, h4, h5 {
+    @apply text-2xs
+}
+
+#preview-only p, li {
+    @apply text-3xs
+}
+
+.md-editor-preview-wrapper {
+    @apply !p-0
 }

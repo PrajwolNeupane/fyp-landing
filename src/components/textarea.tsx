@@ -40,7 +40,10 @@ export default function Textarea<T extends FieldValues>({
       {label && (
         <div className="w-full flex justify-between items-center">
           <label
-            className={cn("text-3xs font-semibold text-gray-700")}
+            className={cn(
+              "text-3xs font-medium text-gray-700",
+              required && "after:content-['*'] after:text-red-500 after:pl-1"
+            )}
             htmlFor={name}
           >
             {label} {optional && "(Optional)"}

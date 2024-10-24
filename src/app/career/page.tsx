@@ -1,5 +1,4 @@
-import { GetAllCareerResponse } from "@/types";
-import axios, { AxiosResponse } from "axios";
+import { getAllCareer } from "@/feature/service";
 import HomeContainer from "./component/home-container";
 import JobsContainer from "./component/jobs-container";
 
@@ -9,13 +8,11 @@ export default async function Page({
   searchParams: { search: string };
 }) {
   try {
-    const response: AxiosResponse<GetAllCareerResponse> = await axios.get(
-      `http://localhost:5000/career/all?limit=50?&search=${search}`
-    );
+    const data = await getAllCareer({ search: search });
     if (search) {
-      return <JobsContainer careers={response?.data?.data?.careers} search={search}/>;
+      return <JobsContainer careers={data?.data?.careers} search={search} />;
     } else {
-      return <HomeContainer careers={response?.data?.data?.careers} />;
+      return <HomeContainer careers={data?.data?.careers} />;
     }
   } catch (e) {
     return <div>A</div>;

@@ -4,6 +4,11 @@ import type { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+import dynamic from "next/dynamic";
+
+const NextProgress = dynamic(() => import("@/components/next-progress-bar"), {
+  ssr: false,
+});
 
 const halenoir = localFont({
   src: [
@@ -31,7 +36,7 @@ const halenoir = localFont({
       path: "../assets/fonts/HalenoirCompact-ExtraLight.otf",
       weight: "300",
     },
-  ],
+],
   variable: "--font-halenoir",
 });
 
@@ -48,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${halenoir.className}`}>
+        <NextProgress />
         {children}
         <ToastContainer
           position="bottom-right"

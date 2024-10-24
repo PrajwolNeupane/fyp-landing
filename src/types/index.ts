@@ -112,3 +112,8 @@ export interface Pagination {
   currentPage: number;
   limit: number;
 }
+
+export interface CareerQuestion {
+  is_required: true;
+  question: string;
+}
