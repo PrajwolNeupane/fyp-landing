@@ -18,13 +18,13 @@ export default function Home() {
         {/* Nav Bar */}
         <NavBar />
         <div className="flex flex-col items-center my-20 justify-between gap-10">
-          <h1 className="text-white font-bold text-[100px] leading-[100%]">
+          <h1 className="text-white font-bold xl:text-[100px] md:text-[80px] xsm:text-[60px] sm:text-[45px] text-[35px] leading-[100%]">
             Talent Plus <span className="text-orange-500">HRMS</span>
           </h1>
-          <h5 className="text-center text-gray-100 text-4xl leading-[110%]">
+          <h5 className="text-center text-gray-100 xl:text-4xl md:text-3xl xsm:text-lg sm:text-md text-base leading-[110%]">
             Simplifying HR processes <br /> across organizations
           </h5>
-          <p className="w-1/2 text-center text-gray-200 text-xs">
+          <p className="lg:w-1/2 xsm:w-[70%] sm:w-[80%] w-[90%] text-center text-gray-200 text-xs">
             A cloud-based platform that streamlines HR processes, from
             recruitment to performance tracking. It offers tools for managing
             employee records, attendance, and workflows, with features like

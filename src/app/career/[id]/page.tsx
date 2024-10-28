@@ -29,7 +29,7 @@ export default async function ({ params: { id } }: { params: { id: string } }) {
       </div>
       <div className="flex w-full py-10 px-[8%] bg-gray-100 min-h-[calc(100vh-110px)] gap-5">
         {/*===================== Career Detail ====================*/}
-        <div className="flex flex-col gap-4 w-[72%] p-8 bg-white rounded-lg items-start overflow-y-auto h-[calc(100vh-190px)]">
+        <div className="flex flex-col gap-4 w-[72%] p-8 bg-white rounded-lg items-start">
           <div className="w-full flex gap-4 items-center relative">
             <Image
               src={data.data.career.organization.logo}
@@ -128,12 +128,9 @@ export default async function ({ params: { id } }: { params: { id: string } }) {
           {data.data.career.description && (
             <MdPreview content={data.data.career.description} />
           )}
-          {data.data.career.description && (
-            <MdPreview content={data.data.career.description} />
-          )}
         </div>
         {/*===================== Side Bar ====================*/}
-        <div className="flex flex-col w-[28%] h-[calc(100vh-190px)] gap-3">
+        <div className="flex flex-col w-[28%] h-full gap-3">
           <h3 className="font-medium text-sm text-gray-900">Similar Careers</h3>
           <div className="flex flex-col gap-2 overflow-y-auto">
             {data.data.similarCareer?.map((curr, index) => (

@@ -37,6 +37,24 @@ export const uploadDocument = async (files: File[]) => {
   return response.data;
 };
 
+//============== Upload Image ==================
+export const uploadImage = async (files: File[], type: string) => {
+  const formData = new FormData();
+  files?.map((curr, index) => {
+    formData.append(`image[${index}]`, curr);
+  });
+  formData.append("type", type);
+  const response: AxiosResponse<{
+    success: boolean;
+    urls: string[];
+  }> = await axios.post(`${baseURL}/upload/images`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return response.data;
+};
+
 //============== Career Apply ================
 export const applyCareer = async ({ id, body }: { id: string; body: any }) => {
   const cv_response = await uploadDocument([body.cv]);

@@ -38,7 +38,7 @@ export default function JobCard({
         <p className="line-clamp-2 text-3xs text-gray-600">
           {career?.short_description}
         </p>
-        <div className="flex w-full gap-2">
+        <div className="flex flex-wrap w-full gap-2">
           <Badge
             content={
               "Expire " + moment(career?.expired_at, "YYYYMMDD").fromNow()

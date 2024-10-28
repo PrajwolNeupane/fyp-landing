@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import * as y from "yup";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { applyCareer } from "@/feature/service";
+import { toast } from "react-toastify";
 
 export default function ApplyForm({
   questions,
@@ -34,11 +35,11 @@ export default function ApplyForm({
   });
 
   const onSubmit = async (data: ApplyCareerInterface) => {
-    alert("H");
     try {
-      const response = await applyCareer({ id, body: data });
+      await applyCareer({ id, body: data });
+      toast.success("Applied successfully");
     } catch (e) {
-      console.log(e);
+      toast.error("Something went wrong");
     }
   };
 
@@ -56,6 +57,7 @@ export default function ApplyForm({
         required
         placeholder="eg. Jhon Doe"
         type="text"
+        outerDivClassName="xsm:col-span-1 col-span-2"
       />
       <Input<ApplyCareerInterface>
         register={register}
@@ -65,6 +67,7 @@ export default function ApplyForm({
         required
         placeholder="eg. jhondoe@gmail.com"
         type="email"
+        outerDivClassName="xsm:col-span-1 col-span-2"
       />
       <Input<ApplyCareerInterface>
         register={register}
@@ -74,6 +77,7 @@ export default function ApplyForm({
         required
         placeholder="1234567890"
         type="number"
+        outerDivClassName="xsm:col-span-1 col-span-2"
       />
       <Input<ApplyCareerInterface>
         register={register}
@@ -83,6 +87,7 @@ export default function ApplyForm({
         required
         placeholder="https://linkedin.com/in/jhondoe"
         type="url"
+        outerDivClassName="xsm:col-span-1 col-span-2"
       />
       <Textarea<ApplyCareerInterface>
         register={register}

@@ -1,9 +1,7 @@
 import NavBar from "@/components/nav-bar";
-import { LINK } from "@/constants";
 import { getCareerDetail } from "@/feature/service";
 import { getWorkType } from "@/utils";
 import Image from "next/image";
-import Link from "next/link";
 import { BsSuitcaseLg } from "react-icons/bs";
 import { CiUser } from "react-icons/ci";
 import { FiMapPin } from "react-icons/fi";
@@ -30,8 +28,8 @@ export default async function Page({
       >
         <NavBar />
       </div>
-      <div className="flex flex-col gap-4 w-[60%] mx-auto py-12 bg-white items-start">
-        <div className="w-full flex gap-4 items-center">
+      <div className="flex flex-col gap-4 w-full xl:px-60 lg:px-40 md:px-16 px-8 mx-auto py-12 bg-white items-start">
+        <div className="w-full flex sm:flex-row flex-col gap-4 sm:items-center items-start">
           <Image
             src={data.data.career.organization.logo}
             width={150}
@@ -40,14 +38,14 @@ export default async function Page({
             className="object-contain"
           />
           <div>
-            <h2 className="text-xs font-semibold tracking-[0.5px] mt-2 text-gray-900">
+            <h2 className="sm:text-xs text-2xs font-semibold tracking-[0.5px] mt-2 text-gray-900">
               {data.data.career.title}
             </h2>
             <h4 className="text-4xs text-blue-700">{data.data.career?.role}</h4>
           </div>
         </div>
         <div className="w-full h-[1px] bg-gray-200"></div>
-        <div className="w-full grid grid-cols-4 gap-4">
+        <div className="w-full grid md:grid-cols-4 grid-cols-2 gap-4">
           {/* Salary */}
           {data.data.career.salary && (
             <div className="flex gap-2 items-center">

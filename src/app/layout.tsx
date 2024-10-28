@@ -36,7 +36,7 @@ const halenoir = localFont({
       path: "../assets/fonts/HalenoirCompact-ExtraLight.otf",
       weight: "300",
     },
-],
+  ],
   variable: "--font-halenoir",
 });
 
@@ -57,15 +57,15 @@ export default function RootLayout({
         {children}
         <ToastContainer
           position="bottom-right"
-          autoClose={2000}
-          hideProgressBar={true}
+          autoClose={3500}
+          hideProgressBar
           newestOnTop={false}
-          closeOnClick
+          closeOnClick={false}
           rtl={false}
-          pauseOnFocusLoss
-          draggable
+          pauseOnFocusLoss={false}
+          draggable={false}
           pauseOnHover
-          theme="colored"
+          theme="light"
         />
       </body>
     </html>

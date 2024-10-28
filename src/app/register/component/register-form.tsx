@@ -9,6 +9,7 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import FindLocationMap from "./find-location-map";
+import UploadImage from "@/components/upload-image";
 
 export default function RegisterForm() {
   const {
@@ -22,6 +23,15 @@ export default function RegisterForm() {
   return (
     <form className="grid grid-cols-3 w-full gap-3">
       <>
+        <UploadImage<CreateOrganizationInterface>
+          className="col-span-3"
+          setValue={setValue}
+          errors={errors?.image}
+          name="image"
+          required
+          label="Organization Logo"
+          placeholder="Upload Organization Logo"
+        />
         <Input<CreateOrganizationInterface>
           name="name"
           register={register}
@@ -99,7 +109,7 @@ export default function RegisterForm() {
             rows={15}
           />
         </div>
-        <FindLocationMap setValue={setValue}/>
+        <FindLocationMap setValue={setValue} />
       </div>
     </form>
   );

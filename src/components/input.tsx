@@ -34,7 +34,7 @@ export default function Input<T extends FieldValues>({
   ...props
 }: InputProps<T>) {
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className={cn(`flex flex-col gap-2 w-full`, outerDivClassName)}>
       {label && (
         <div className="w-full flex justify-between items-center">
           <label

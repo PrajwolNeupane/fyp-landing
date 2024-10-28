@@ -25,6 +25,22 @@ export const CreateOrganizationSchema = y.object().shape({
     )
     .min(1, "At least one admin is required")
     .required("At least one admin is required"),
+  image: y
+    .mixed()
+    .required("Image is required")
+    .test("fileType", "Only image files are allowed", (value) => {
+      return (
+        value &&
+        ["image/jpeg", "image/png", "image/jpg", "image/gif"].includes(
+          //@ts-expect-error
+          value.type
+        )
+      );
+    })
+    .test("fileSize", "File size is too large", (value) => {
+      //@ts-expect-error
+      return value && value.size <= 3 * 1024 * 1024; // 2MB max file size
+    }),
 });
 
 export type CreateOrganizationInterface = y.InferType<
