@@ -3,7 +3,6 @@ import * as y from "yup";
 
 //================== Create Organization Schema ===============
 export const CreateOrganizationSchema = y.object().shape({
-  logo: y.string().required("Logo is required"),
   name: y.string().required("Name is required"),
   address: y.string().required("Address is required"),
   reg_no: y.string().required("Reg No Required"),
@@ -17,15 +16,15 @@ export const CreateOrganizationSchema = y.object().shape({
     .array(
       y
         .object({
-          email: y.string().email().required(),
-          first_name: y.string().required(),
-          last_name: y.string().required(),
+          email: y.string().email().required("Required  "),
+          first_name: y.string().required("Required"),
+          last_name: y.string().required("Required"),
         })
         .required("At least one admin is required")
     )
     .min(1, "At least one admin is required")
     .required("At least one admin is required"),
-  image: y
+  logo: y
     .mixed()
     .required("Image is required")
     .test("fileType", "Only image files are allowed", (value) => {

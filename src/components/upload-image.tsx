@@ -28,6 +28,7 @@ export default function UploadImage<T extends FieldValues>({
   name,
   setValue,
   placeholder,
+  errors,
 }: Props<T>) {
   const [previewUrl, setPreviewUrl] = useState<null | string>(null);
 
@@ -52,7 +53,9 @@ export default function UploadImage<T extends FieldValues>({
           if (files?.length && files?.length > 0) {
             const url = URL.createObjectURL(files[0]);
             setPreviewUrl(url);
-            setValue(name, files[0] as PathValue<T, Path<T>>);
+            setValue(name, files[0] as PathValue<T, Path<T>>, {
+              shouldValidate: true,
+            });
           }
         }}
       />
@@ -80,6 +83,9 @@ export default function UploadImage<T extends FieldValues>({
           />
         )}
       </div>
+      {errors && errors?.message && (
+        <p className="text-3xs text-red-500">{errors?.message}</p>
+      )}
     </div>
   );
 }

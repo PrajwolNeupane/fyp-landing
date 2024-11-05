@@ -54,6 +54,7 @@ export default function FindLocationMap({
   return (
     <div className="p-3 border border-gray-700 w-full rounded-xl col-span-2 relative flex flex-col gap-3">
       <GalliAutocomplete
+        setValue={setValue}
         setLocation={setLocation}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}

@@ -1,8 +1,10 @@
+import { CreateOrganizationInterface } from "@/schema";
 import { GetAllCareerResponse, GetCareerResponse } from "@/types";
 import axios, { AxiosResponse } from "axios";
 
 const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
+//============== Get All Career ==================
 export const getAllCareer = async (params?: {
   limit?: number;
   search?: string;
@@ -52,6 +54,19 @@ export const uploadImage = async (files: File[], type: string) => {
       "Content-Type": "multipart/form-data",
     },
   });
+  return response.data;
+};
+
+//============== Register ==================
+export const registerOrganization = async (
+  body: CreateOrganizationInterface
+) => {
+  const image_response = await uploadImage(
+    [body.logo as unknown as File],
+    "logo"
+  );
+  body.logo = image_response.urls[0];
+  const response = await axios.post(`${baseURL}/organization/create`, body);
   return response.data;
 };
 

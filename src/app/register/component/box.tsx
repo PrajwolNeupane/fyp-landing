@@ -1,19 +1,23 @@
 "use client";
 import { GALLI_KEY } from "@/constants";
+import { CreateOrganizationInterface } from "@/schema";
 import { SearchAddress } from "@/types";
 import axios from "axios";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { UseFormSetValue } from "react-hook-form";
 
 const GalliAutocomplete = ({
   searchQuery,
   setLocation,
   setSearchQuery,
+  setValue,
 }: {
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
   setLocation: Dispatch<
     SetStateAction<{ latitude: number; longitude: number } | null>
   >;
+  setValue: UseFormSetValue<CreateOrganizationInterface>;
 }) => {
   const [suggestions, setSuggestions] = useState<SearchAddress[]>([]);
   const [loading, setLoading] = useState(false);
@@ -87,6 +91,8 @@ const GalliAutocomplete = ({
                           longitude: curr?.geometry?.coordinates[0],
                           latitude: curr?.geometry?.coordinates[1],
                         });
+                        setValue("lat", curr?.geometry?.coordinates[1]);
+                        setValue("lon", curr?.geometry?.coordinates[0]);
                       }}
                     >
                       <h1 className="text-4xs font-medium">
